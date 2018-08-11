@@ -1,12 +1,27 @@
 ---
 - hosts: all
   become: yes
+  gateher_facts: yes
   tasks:
-  - name: install webserver on Redhat(apache2)
+  - name: install webserver on Redhat(httpd)
     yum:
       name: httpd
       state: present
-  - name: start apache2 service
+    when: ansible_os__family== "RedHat"
+
+  - name: start httpd service
     service:
       name: httpd
-      state: started    
+      state: started 
+    when: ansible_os__family== "RedHat"     
+
+  - name: install webserver on ubuntu(apache2)
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os__family== "Debian"
+  - name: start apache2 service  
+    service:
+      name: apache2
+      state: start
+    when: ansible_os__family== "Debian"      
