@@ -17,9 +17,9 @@
     when: ansible_os_family== "RedHat"  
 
 
-- handlers: 
+  handlers: 
   - name: start the httpd service
     service:
-      name: starthttpd
-      state: started  
-    when: ansible_os_family== "RedHat"   
+     name: starthttpd
+     state: started  
+  when: ansible_os_family== "RedHat"   
