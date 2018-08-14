@@ -9,4 +9,15 @@
   - name: result of host name tasks
     debug: 
       msg: "{{ myresult }}"  
-    when: ansible_os_family== "RedHat"  
+    when: ansible_os_family== "RedHat"
+
+  - name: install git if stderr is empty
+    yum:
+      name: git
+      state: present
+    when: ansible_os_family== "RedHat"
+  - name: install tree if stderr is not empty
+    yum:    
+      name: tree
+      state: present
+    when: ansible_os_family== "RedHat" 
