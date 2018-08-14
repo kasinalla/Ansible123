@@ -6,18 +6,26 @@
     command: hostname -f
     register: myresult
     when: ansible_os_family== "RedHat"
+    tags:
+      - package1
   - name: result of host name tasks
     debug: 
       msg: "{{ myresult }}"  
     when: ansible_os_family== "RedHat"
+    tags:
+      - package2
 
   - name: install git if stderr is empty
     yum:
       name: git
       state: present
     when: ansible_os_family== "RedHat"
+    tags:
+      - package3
   - name: install tree if stderr is not empty
     yum:    
       name: tree
       state: present
     when: ansible_os_family== "RedHat" 
+    tags:
+      - package4
