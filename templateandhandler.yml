@@ -5,9 +5,10 @@
   - include_tasks: myfile.yml       
   - name: install ws on redhat
     yum:
-      name: httpd
+      namee: httpd
       state: present
     notify: starthttpd
+    ignore_errors: yes
     when: ansible_os_family== "RedHat"
   
   - name: copy the index file cm to all redhat nodes
