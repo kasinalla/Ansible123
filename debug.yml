@@ -10,4 +10,4 @@
         msg: "{{ cmpname }}"
    - name: Display the val1
      debug: 
-        msg: "{{ myval1 }}"    
+        msg: "{{ myvar1 }}"    
