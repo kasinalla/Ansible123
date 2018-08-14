@@ -4,10 +4,10 @@
   vars:
     myvar1: kasi
     myvar2: cool
-    tasks:
-    - name: Display the var values
-      debug:
+  tasks:
+   - name: Display the var values
+     debug:
         msg: "{{ cmpname }}"
-    - name: Display the val1
-      debug: 
+   - name: Display the val1
+     debug: 
         msg: "{{ myval1 }}"    
