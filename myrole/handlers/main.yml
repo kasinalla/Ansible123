@@ -1,6 +1,6 @@
 ---
 # handlers file for myrole
-- name: tomatart
+- name: tomstart
   service:
     name: tomcat
     state: started
