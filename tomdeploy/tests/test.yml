@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: mywebservers
   remote_user: root
   roles:
     - tomdeploy
